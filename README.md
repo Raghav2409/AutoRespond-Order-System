@@ -1,33 +1,37 @@
-# Fashion Store Email Handler - Auto Respond & Order Processing
+# Fashion Store Email Processor - Auto Respond & Order Processing
 
 ## Overview
-This project implements an advanced agentic AI system for fashion retail that autonomously handles customer interactions through email. The system uses state-of-the-art AI techniques to understand, process, and respond to customer inquiries and orders with human-like intelligence and business acumen.
+This project implements an intelligent email processing system for a fashion store that automatically handles customer inquiries and order requests. The system uses three specialized AI agents working in concert to provide a seamless customer experience.
 
-## Agentic AI Capabilities
+## Core Agents
 
-### 1. Autonomous Decision Making
-- Self-learning classification system that improves with each interaction
-- Contextual understanding of customer intent and sentiment
-- Dynamic response generation based on customer history and preferences
-- Proactive problem-solving for complex customer scenarios
+### 1. Email Classification Agent
+- **Primary Function**: Analyzes and categorizes incoming emails
+- **Capabilities**:
+  - Uses GPT-4 for accurate intent classification
+  - Distinguishes between "product inquiry" and "order request"
+  - Handles various email formats and writing styles
+  - Maintains classification accuracy metrics
+- **Output**: Generates email-classification sheet with email IDs and categories
 
-### 2. Intelligent Email Classification
-- Multi-factor classification using GPT-4 and custom ML models
-- Sentiment analysis for customer satisfaction tracking
-- Priority-based processing for urgent requests
-- Pattern recognition for identifying repeat customers
+### 2. Order Processing Agent
+- **Primary Function**: Manages order fulfillment and inventory
+- **Capabilities**:
+  - Extracts product IDs and quantities from order requests
+  - Verifies product availability in stock
+  - Updates inventory levels automatically
+  - Generates professional order confirmation emails
+  - Suggests alternatives for out-of-stock items
+- **Output**: Creates order-status and order-response sheets
 
-### 3. Smart Order Processing
-- Real-time inventory management with predictive stock updates
-- Intelligent product matching using semantic understanding
-- Dynamic pricing and discount suggestions
-- Automated order optimization for better customer experience
-
-### 4. Advanced Product Inquiry Handling
-- Contextual product recommendations using RAG (Retrieval-Augmented Generation)
-- Personalized response generation based on customer profile
-- Cross-selling and upselling suggestions
-- Seasonal and trend-based recommendations
+### 3. Product Inquiry Agent
+- **Primary Function**: Handles product information requests
+- **Capabilities**:
+  - Uses TF-IDF and cosine similarity for product matching
+  - Provides detailed product information
+  - Generates personalized responses with relevant recommendations
+  - Handles complex queries about product features and availability
+- **Output**: Generates inquiry-response sheet with detailed product information
 
 ## Technical Implementation
 
@@ -44,172 +48,95 @@ google-auth
 gspread-dataframe
 regex
 rapidfuzz
-transformers
-torch
-scikit-learn
 ```
 
 ### Key Components
 
-1. **Agentic Email Processor**
-   - Autonomous decision-making engine
-   - Self-improving classification system
-   - Context-aware response generation
-   - Real-time learning from customer interactions
+1. **EmailProcessor Class**
+   - Unified class handling all email processing tasks
+   - Implements vector-based product search
+   - Manages Google Sheets integration
 
-2. **Intelligent Product Matching**
-   - Multi-modal product search (text, attributes, context)
-   - Semantic understanding of product descriptions
-   - Dynamic relevance scoring
-   - Personalized recommendation engine
+2. **Product Matching**
+   - Uses FAISS for efficient vector similarity search
+   - Implements fuzzy matching for product names
+   - Handles partial matches and similar products
 
-3. **Advanced Response Generation**
-   - Contextual understanding of customer needs
-   - Multi-turn conversation handling
-   - Emotional intelligence in responses
-   - Business rule integration
+3. **Response Generation**
+   - Context-aware response generation using GPT-4
+   - Professional tone adaptation
+   - Includes product details, pricing, and availability
 
 ## Setup Instructions
 
 1. Install required packages:
 ```bash
-pip install pandas numpy openai langchain faiss-cpu tqdm gspread google-auth gspread-dataframe regex rapidfuzz transformers torch scikit-learn
+pip install pandas numpy openai langchain faiss-cpu tqdm gspread google-auth gspread-dataframe regex rapidfuzz
 ```
 
-2. Configure APIs:
+2. Configure API Keys:
    - Set up OpenAI API key
    - Configure Google Sheets credentials
-   - Initialize vector database
-   - Set up monitoring and logging
 
 3. Run the notebook:
    - Open `Solve_Business_Problems_with_AI_.ipynb` in Jupyter
    - Execute cells in sequence
-   - Monitor AI performance metrics
-   - Review and adjust system parameters
+   - Results will be saved to Google Sheets
 
-## Output and Analytics
+## Output Format
 
-The system generates comprehensive outputs and analytics:
+The system generates four main outputs:
 
 1. **Email Classification**
    - email_id
    - category (product inquiry/order request)
 
-   **Features**
-   - Classification results with confidence scores
-   - Sentiment analysis
-   - Response quality metrics
-   - Customer satisfaction tracking
-
-1. **Order Status**
+2. **Order Status**
    - email_id
    - product_id
    - quantity
    - status (created/out of stock)
-   
-   **Features**
-   - Real-time order status
-   - Inventory predictions
-   - Sales analytics
-   - Customer behavior insights
 
-2. **Order Responses**
+3. **Order Responses**
    - email_id
    - response (confirmation/out of stock notification)
 
-   **Features**
-   - Product performance metrics
-   - Customer preference analysis
-   - Trend identification
-   - Cross-selling opportunities
-
-3. **Inquiry Responses**
+4. **Inquiry Responses**
    - email_id
    - response (product information/recommendations)
 
-   **Features**
-   - AI model accuracy metrics
-   - Response time analytics
-   - Error rate tracking
-   - System optimization suggestions
-
-
-## Advanced Features
-
-1. **Continuous Learning**
-   - Self-improving classification models
-   - Adaptive response generation
-   - Pattern recognition for business insights
-   - Performance optimization
-
-2. **Business Intelligence**
-   - Sales trend analysis
-   - Customer behavior prediction
-   - Inventory optimization
-   - Pricing strategy suggestions
-
-3. **Customer Experience**
-   - Personalized interactions
-   - Proactive problem resolution
-   - Multi-channel consistency
-   - Customer journey optimization
-
 ## Best Practices
 
-1. **AI Governance**
-   - Ethical AI usage guidelines
-   - Bias detection and mitigation
-   - Transparency in decision-making
-   - Regular model auditing
+1. **Error Handling**
+   - Robust error handling for API calls
+   - Fallback mechanisms for product matching
+   - Graceful degradation when services are unavailable
 
 2. **Performance Optimization**
-   - Distributed processing for large datasets
-   - Caching strategies
-   - Load balancing
-   - Resource optimization
+   - Efficient vector search using FAISS
+   - Batch processing for multiple emails
+   - Caching of product vectors
 
-3. **Security & Compliance**
-   - Data encryption
-   - Access control
-   - Audit logging
-   - GDPR compliance
+3. **Security**
+   - Secure API key management
+   - Data validation and sanitization
+   - Access control for Google Sheets
 
 ## Limitations
 
-1. AI model limitations
-2. API rate limits
-3. Processing time for complex queries
-4. Data privacy constraints
+1. API rate limits for OpenAI
+2. Token limits for GPT-4 responses
+3. Google Sheets API quotas
+4. Processing time for large datasets
 
-## Future Roadmap
+## Future Improvements
 
-1. **Enhanced AI Capabilities**
-   - Multi-modal understanding
-   - Advanced reasoning
-   - Emotional intelligence
-   - Predictive analytics
-
-2. **Business Integration**
-   - ERP system integration
-   - CRM synchronization
-   - Supply chain optimization
-   - Marketing automation
-
-3. **Customer Experience**
-   - Voice interface
-   - Image recognition
-   - Real-time chat
-   - Personalized recommendations
+1. Implement caching for frequently accessed products
+2. Add support for multiple languages
+3. Enhance product matching algorithms
+4. Implement real-time stock updates
+5. Add support for image-based product queries
 
 ## Contributing
 
-We welcome contributions to enhance the system's capabilities:
-- AI model improvements
-- Feature additions
-- Performance optimizations
-- Documentation updates
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+Feel free to submit issues and enhancement requests!
