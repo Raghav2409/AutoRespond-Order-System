@@ -95,36 +95,40 @@ The system generates comprehensive outputs and analytics:
 1. **Email Classification**
    - email_id
    - category (product inquiry/order request)
-  
+
+   **Features**
    - Classification results with confidence scores
    - Sentiment analysis
    - Response quality metrics
    - Customer satisfaction tracking
 
-2. **Order Status**
+1. **Order Status**
    - email_id
    - product_id
    - quantity
    - status (created/out of stock)
-  
-   Real-time order status
-   Inventory predictions
-   Sales analytics
-   Customer behavior insights
+   
+   **Features**
+   - Real-time order status
+   - Inventory predictions
+   - Sales analytics
+   - Customer behavior insights
 
-3. **Order Responses**
+2. **Order Responses**
    - email_id
    - response (confirmation/out of stock notification)
-  
+
+   **Features**
    - Product performance metrics
    - Customer preference analysis
    - Trend identification
    - Cross-selling opportunities
 
-4. **Inquiry Responses**
+3. **Inquiry Responses**
    - email_id
    - response (product information/recommendations)
-  
+
+   **Features**
    - AI model accuracy metrics
    - Response time analytics
    - Error rate tracking
