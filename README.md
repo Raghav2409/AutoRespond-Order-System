@@ -1,4 +1,4 @@
-# Fashion Store Email Processing System - Auto Respond & Order Processing
+# Fashion Store Email Handler Agent - Auto Respond & Order Processing
 
 ## Overview
 This project implements an intelligent email processing system for a fashion store that automatically handles customer inquiries and order requests. The system uses advanced AI techniques to classify emails, process orders, and generate appropriate responses.
