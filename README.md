@@ -107,10 +107,10 @@ The system generates comprehensive outputs and analytics:
    - quantity
    - status (created/out of stock)
   
-   - Real-time order status
-   - Inventory predictions
-   - Sales analytics
-   - Customer behavior insights
+   Real-time order status
+   Inventory predictions
+   Sales analytics
+   Customer behavior insights
 
 3. **Order Responses**
    - email_id
