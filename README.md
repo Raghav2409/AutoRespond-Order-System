@@ -76,13 +76,13 @@ scikit-learn
 pip install pandas numpy openai langchain faiss-cpu tqdm gspread google-auth gspread-dataframe regex rapidfuzz transformers torch scikit-learn
 ```
 
-2. Configure AI Services:
+2. Configure APIs:
    - Set up OpenAI API key
    - Configure Google Sheets credentials
    - Initialize vector database
    - Set up monitoring and logging
 
-3. Run the system:
+3. Run the notebook:
    - Open `Solve_Business_Problems_with_AI_.ipynb` in Jupyter
    - Execute cells in sequence
    - Monitor AI performance metrics
@@ -92,29 +92,44 @@ pip install pandas numpy openai langchain faiss-cpu tqdm gspread google-auth gsp
 
 The system generates comprehensive outputs and analytics:
 
-1. **Email Processing**
+1. **Email Classification**
+   - email_id
+   - category (product inquiry/order request)
+  
    - Classification results with confidence scores
    - Sentiment analysis
    - Response quality metrics
    - Customer satisfaction tracking
 
-2. **Order Management**
+2. **Order Status**
+   - email_id
+   - product_id
+   - quantity
+   - status (created/out of stock)
+  
    - Real-time order status
    - Inventory predictions
    - Sales analytics
    - Customer behavior insights
 
-3. **Product Intelligence**
+3. **Order Responses**
+   - email_id
+   - response (confirmation/out of stock notification)
+  
    - Product performance metrics
    - Customer preference analysis
    - Trend identification
    - Cross-selling opportunities
 
-4. **System Performance**
+4. **Inquiry Responses**
+   - email_id
+   - response (product information/recommendations)
+  
    - AI model accuracy metrics
    - Response time analytics
    - Error rate tracking
    - System optimization suggestions
+
 
 ## Advanced Features
 
